@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: Simple Node API
+  version: 1.0.0
+  description: A simple Express API with Swagger UI and YAML
+
+servers:
+  - url: http://localhost:3000
+    description: Local server
+
+paths:
+  /api/hello:
+    get:
+      summary: Return a greeting message
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hello, world!
+  /books:
+    get:
+      summary: Return the books list
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                $ref: 'server.books'
+  
+  
